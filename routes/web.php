@@ -12,3 +12,7 @@ Route::get('/blog/edit/{id}', 'BlogController@edit')->name('blog.edit');
 Route::put('/blog/edit/{id}', 'BlogController@update');
 Route::delete('/blog/{id}', 'BlogController@destroy')->name('blog.delete');
 Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
+
+
+Route::get('/comment', 'CommentController@index')->name('comment');
+Route::post('/comment/create/{blog_id}', 'CommentController@store')->name('comment.create');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Comment;
 
 class BlogController extends Controller
 {
@@ -16,9 +17,14 @@ class BlogController extends Controller
 
     public function show ($id)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::with('comments')->find($id);
+        // $comments = Comment::where('blog_id', $blog->id)->get();
 
         return view('blog.show', compact('blog'));
+        // return view('blog.show', [
+        //     'blog' => $blog,
+        //     'comments' => $comments,
+        // ]);
     }
 
     public function create()
