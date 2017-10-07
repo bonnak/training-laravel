@@ -16,3 +16,16 @@ Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
 
 Route::get('/comment', 'CommentController@index')->name('comment');
 Route::post('/comment/create/{blog_id}', 'CommentController@store')->name('comment.create');
+
+
+Route::group([ 'prefix' => 'user' ], function () {
+    Route::get('/', 'UserController@index');
+    Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
+    Route::put('edit/{id}', 'UserController@update');
+});
+
+Route::get('role', function () {
+    $roles = App\Role::with('users')->get();
+
+    return view('roles', compact('roles'));
+});

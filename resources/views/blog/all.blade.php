@@ -5,7 +5,7 @@
         @foreach($blogs as $blog)
           <li class="list-group-item">
             <a href="{{ route('blog.show', [ 'id' => $blog->id ]) }}">{{ $blog->title }}</a>
-            <div>
+            <div class="d-flex">
                 <a class="btn btn-primary" href="{{ route('blog.edit', [ 'id' => $blog->id ]) }}">Edit</a>
                 <form method="post" action="{{ route('blog.delete', [ 'id' => $blog->id ])}}">
                     {!! csrf_field() !!}
