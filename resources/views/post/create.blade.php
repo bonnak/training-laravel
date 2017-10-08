@@ -1,7 +1,7 @@
 @extends('_layouts.master')
 
 @section('content')
-    <form method="post" action="{{ route('blog.create') }}">
+    <form method="post" action="{{ route('post.create') }}">
         {!! csrf_field() !!}
       <div class="form-group">
         <label for="title">Title</label>

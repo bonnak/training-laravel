@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index ()
     {
-        $users = User::with([ 'roles', 'blogs' ])->get();
+        $users = User::with([ 'roles', 'posts' ])->get();
 
         return view('users', compact('users'));
     }

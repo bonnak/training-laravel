@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Blog;
+use App\Post;
 
-class BlogsTableSeeder extends Seeder
+class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class BlogsTableSeeder extends Seeder
     public function run()
     {
         // Truncate all of blogs table data.
-        Blog::truncate();
+        Post::truncate();
 
         // Insert a record into blogs table.
-        factory(Blog::class, 10)->create([ 'user_id' => 1 ]);
+        factory(Post::class, 10)->create([ 'user_id' => 1 ]);
     }
 }

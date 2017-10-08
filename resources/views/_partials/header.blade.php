@@ -7,14 +7,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="mr-auto">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('user') }}">User</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('role') }}">Role</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('post') }}">Post</a>
         </li>
       </ul>
     </div>

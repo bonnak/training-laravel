@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post;
 use App\Role;
 
 class User extends Authenticatable
@@ -28,9 +29,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function blogs()
+    public function posts()
     {
-        return $this->hasMany(Blog::class, 'user_id', 'id');
+        return $this->hasMany(Post::class, 'user_id', 'id');
     }
 
     public function roles()

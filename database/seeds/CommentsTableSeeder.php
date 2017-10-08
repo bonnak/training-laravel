@@ -14,7 +14,7 @@ class CommentsTableSeeder extends Seeder
     {
         Comment::truncate();
 
-        factory(Comment::class, 5)->create([ 'blog_id' => 1 ]);
-        factory(Comment::class, 5)->create([ 'blog_id' => 2 ]);
+        factory(Comment::class, 5)->create([ 'post_id' => 1 ]);
+        factory(Comment::class, 5)->create([ 'post_id' => 2 ]);
     }
 }

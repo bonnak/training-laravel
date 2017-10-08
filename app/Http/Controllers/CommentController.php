@@ -9,14 +9,14 @@ class CommentController extends Controller
 {
     public function index ()
     {
-        return Comment::with('blog')->get();
+        return Comment::with('post')->get();
     }
 
-    public function store($blog_id)
+    public function store($post_id)
     {
         Comment::create([
             'user_id' => auth()->user()->id,
-            'blog_id' => $blog_id,
+            'post_id' => $post_id,
             'body' => request()->body,
         ]);
 

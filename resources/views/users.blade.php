@@ -6,7 +6,7 @@
             <tr>
                 <th>User name</th>
                 <th>Roles</th>
-                <th>Blogs</th>
+                <th>Posts</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +22,8 @@
                 </td>
                 <td>
                     <ul>
-                        @foreach($user->blogs as $blog)
-                        <li>{{ $blog->title }}</li>
+                        @foreach($user->posts as $post)
+                        <li>{{ $post->title }}</li>
                         @endforeach
                     </ul>
                 </td>

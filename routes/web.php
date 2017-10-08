@@ -8,17 +8,17 @@ Route::get('auth/logout', 'AuthController@logout')->name('logout')->middleware('
 // Allow only authenticated user.
 Route::group([ 'middleware' => 'auth' ], function () {
 
-    Route::get('/blog', 'BlogController@index')->name('blog');
-    Route::get('/blog/create', 'BlogController@create')->name('blog.create');
-    Route::post('/blog/create', 'BlogController@store');
-    Route::get('/blog/edit/{id}', 'BlogController@edit')->name('blog.edit');
-    Route::put('/blog/edit/{id}', 'BlogController@update');
-    Route::delete('/blog/{id}', 'BlogController@destroy')->name('blog.delete');
-    Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
+    Route::get('/post', 'PostController@index')->name('post');
+    Route::get('/post/create', 'PostController@create')->name('post.create');
+    Route::post('/post/create', 'PostController@store');
+    Route::get('/post/edit/{id}', 'PostController@edit')->name('post.edit');
+    Route::put('/post/edit/{id}', 'PostController@update');
+    Route::delete('/post/{id}', 'PostController@destroy')->name('post.delete');
+    Route::get('/post/{id}', 'PostController@show')->name('post.show');
 
 
     Route::get('/comment', 'CommentController@index')->name('comment');
-    Route::post('/comment/create/{blog_id}', 'CommentController@store')->name('comment.create');
+    Route::post('/comment/create/{post_id}', 'CommentController@store')->name('comment.create');
 
 
     Route::group([ 'prefix' => 'user' ], function () {

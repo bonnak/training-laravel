@@ -1,17 +1,17 @@
 @extends('_layouts.master')
 
 @section('content')
-    <h3>{{ $blog->title }}</h3>
-    <p>{{ $blog->content }}</p>
+    <h3>{{ $post->title }}</h3>
+    <p>{{ $post->content }}</p>
 
     <div class="card">
       <ul class="list-group list-group-flush">
-        @foreach($blog->comments as $comment)
+        @foreach($post->comments as $comment)
         <li class="list-group-item">{{ $comment->body }} </li>
         @endforeach
       </ul>
     </div>
-    <form method="post" action="{{ route('comment.create', [ 'blog_id' => $blog->id ]) }}">
+    <form method="post" action="{{ route('comment.create', [ 'post_id' => $post->id ]) }}">
           {!! csrf_field() !!}
         <div class="form-group">
           <input type="text" class="form-control" name="body" id="body">
