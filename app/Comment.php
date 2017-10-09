@@ -8,12 +8,12 @@ class Comment extends Model
 {
     protected $fillable = [
         'user_id',
-        'blog_id',
+        'post_id',
         'body',
     ];
 
-    public function blog ()
+    public function post ()
     {
-        return $this->belongsTo(Blog::class, 'blog_id', 'id');
+        return $this->belongsTo(Blog::class, 'post_id', 'id');
     }
 }

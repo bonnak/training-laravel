@@ -1,5 +1,5 @@
 <?php
-Route::view('/', 'welcome')->middleware('auth');
+Route::view('/', 'welcome');
 
 Route::get('auth/login', 'AuthController@showLogin')->name('login')->middleware('guest');
 Route::post('auth/login', 'AuthController@login')->middleware('guest');

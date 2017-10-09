@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Policies\CommentPolicy;
+use App\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        User::class => CommentPolicy::class,
     ];
 
     /**
@@ -25,6 +27,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Gate::define('create-comment', function ($user) {
+        //     return $user->id != 2 && $user->id != 4;
+        // });
+
+        Gate::define('comment-create', 'App\Policies\CommentPolicy@create');
+
+        Gate::define('post-update', 'App\Policies\PostPolicy@update');
+        Gate::define('post-delete', 'App\Policies\PostPolicy@delete');
+
     }
 }

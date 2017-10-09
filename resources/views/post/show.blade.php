@@ -11,6 +11,7 @@
         @endforeach
       </ul>
     </div>
+    @if(auth()->user()->can('comment-create'))
     <form method="post" action="{{ route('comment.create', [ 'post_id' => $post->id ]) }}">
           {!! csrf_field() !!}
         <div class="form-group">
@@ -18,4 +19,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
       </form>
+    @endif
 @stop
