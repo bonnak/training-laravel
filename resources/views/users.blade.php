@@ -1,10 +1,12 @@
 @extends('_layouts.master')
 
 @section('content')
+    <a class="btn btn-primary" href="{{ route('user.create') }}">Create User</a>
     <table class="table">
         <thead>
             <tr>
                 <th>User name</th>
+                <th>Email</th>
                 <th>Roles</th>
                 <th>Posts</th>
             </tr>
@@ -13,6 +15,7 @@
             @foreach($users as $user)
             <tr>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
                 <td>
                     <ul>
                         @foreach($user->roles as $role)
