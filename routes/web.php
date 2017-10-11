@@ -1,6 +1,12 @@
 <?php
 Route::view('/', 'welcome');
 
+Route::get('/queue', function () {
+    // $user = App\User::find(1);
+
+    App\Jobs\TestJob::dispatch()->delay(Carbon\Carbon::now()->addSeconds(10));
+});
+
 Route::get('auth/login', 'AuthController@showLogin')->name('login')->middleware('guest');
 Route::post('auth/login', 'AuthController@login')->middleware('guest');
 Route::get('auth/logout', 'AuthController@logout')->name('logout')->middleware('auth');

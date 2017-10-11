@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\MailVerification;
 
 use Illuminate\Bus\Queu;
+use Carbon\Carbon;
+use App\Jobs\SendReminderEmail;
 
 class UserController extends Controller
 {
@@ -64,7 +66,8 @@ class UserController extends Controller
         $user->roles()->sync($request->roles);
 
 
-        Mail::to($user->email)->send(new MailVerification($user, [ 'date' => '2017-01-01']));
+        Mail::to($user->email)->queue(new MailVerification($user, [ 'date' => '2017-01-01']));
+        // SendReminderEmail::dispatch($user)->delay(Carbon::now()->addSeconds(10));
 
         return redirect()->route('user');
     }
